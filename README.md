@@ -29,8 +29,10 @@ You should see the rendered images instead of just plain text.
 `git clone https://github.com/4ch1m/github-markdown-emojis.git`
 * change directory:  
 `cd github-markdown-emojis`
-* use the [Gradle](https://gradle.org)-wrapper to build the plugin: `./gradlew buildPlugin`
-* a deployable ZIP file can then be found here: `./build/distributions/GitHub Markdown Emojis.zip`
+* use the [Gradle](https://gradle.org)-wrapper to build the plugin:  
+`./gradlew buildPlugin`
+* a deployable ZIP file can then be found here:  
+`./build/distributions/GitHub Markdown Emojis.zip`
 
 ## License :balance_scale:
 
