@@ -1,0 +1,38 @@
+<idea-plugin require-restart="true">
+    <id>de.achimonline.github_markdown_emojis</id>
+    <name>GitHub Markdown Emojis</name>
+
+    <vendor
+        email="intellij@achimonline.de"
+        url="https://plugins.jetbrains.com/space/index?pr=idea&amp;lg=4ch1m">
+        Achim Seufert
+    </vendor>
+
+    <description><![CDATA[
+    Displays GitHub emojis in markdown preview pane.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.intellij.plugins.markdown</depends>
+
+    <extensions defaultExtensionNs="org.intellij.markdown">
+        <browserPreviewExtensionProvider implementation="de.achimonline.github_markdown_emojis.GitHubMarkdownEmojis$Provider"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+            id="de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsConfigurable"
+            parentId="tools"
+            instance="de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsConfigurable"/>
+
+        <applicationService serviceImplementation="de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsState"/>
+
+        <notificationGroup
+                id="GITHUB_MARKDOWN_EMOJIS"
+                displayType="BALLOON"
+                key="notifications.group.title"/>
+    </extensions>
+
+    <resource-bundle>messages.GitHubMarkdownEmojisBundle</resource-bundle>
+
+</idea-plugin>
