@@ -54,7 +54,6 @@ tasks {
     }
 
     publishPlugin {
-        dependsOn("patchChangelog")
         if (project.hasProperty("JB_PLUGIN_PUBLISH_TOKEN")) {
             token.set(project.property("JB_PLUGIN_PUBLISH_TOKEN").toString())
         }
