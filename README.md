@@ -1,13 +1,13 @@
 # ![Octomoji](src/main/resources/META-INF/pluginIcon.png) GitHub Markdown Emojis
 > A plugin for the IntelliJ platform to instantly preview emojis of GitHub-flavoured markdown.
 
-## Screenshot :camera:
+## :camera: Screenshot
 
 ![screenshot](screenshot.png)
 
-## HowTo :book:
+## :book: HowTo
 
-### Install :gear:
+### :gear: Install
 
 Use the IDE's built-in plugin system:
 
@@ -17,13 +17,13 @@ Use the IDE's built-in plugin system:
 
 Or go to the [plugin page](https://plugins.jetbrains.com/plugin/20705) on the [JetBrains](https://www.jetbrains.com)-website, download the archive-file and install manually.
 
-### Use :partying_face:
+### :partying_face: Use
 
 There's nothing more to set up.  
 Simply use the GitHub-emojis (e.g. `:smile:`) in your markdown file and active the preview window/pane.  
 You should see the rendered images instead of just plain text.
 
-### Build :hammer:
+### :hammer: Build
 
 * clone the repo:  
 `git clone https://github.com/4ch1m/github-markdown-emojis.git`
@@ -34,20 +34,20 @@ You should see the rendered images instead of just plain text.
 * a deployable ZIP file can then be found here:  
 `./build/distributions/GitHub Markdown Emojis.zip`
 
-## License :balance_scale:
+## :balance_scale: License
 
 Please read the [license](LICENSE) file.
 
-## References :link:
+## :link: References
 
 * [Github Emoji API](https://api.github.com/emojis)
 * [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet)
 
-## Credits :star:
+## :star: Credits
 
 * Logo smiley taken from Microsoft's [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) collection.
 * Octocat silhouette in logo based on [johan](https://gist.github.com/johan/1007813)'s SVG.
 
-## Disclaimer :point_up:
+## :point_up: Disclaimer
 
 This project is not affiliated with or endorsed by [GitHub](https://github.com).
