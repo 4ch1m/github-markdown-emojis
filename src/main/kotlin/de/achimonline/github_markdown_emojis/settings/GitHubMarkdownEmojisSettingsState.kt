@@ -7,13 +7,13 @@ import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
 
 @State(
-    name = "de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingState",
+    name = "de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsState",
     storages = [Storage("GitHubMarkdownEmojis.xml")]
 )
 class GitHubMarkdownEmojisSettingsState : PersistentStateComponent<GitHubMarkdownEmojisSettingsState?> {
-    var url = "https://api.github.com/emojis"
+    var settings = GitHubMarkdownEmojisSettings()
 
-    override fun getState(): GitHubMarkdownEmojisSettingsState? {
+    override fun getState(): GitHubMarkdownEmojisSettingsState {
         return this
     }
 

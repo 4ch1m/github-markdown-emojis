@@ -1,40 +1,24 @@
 package de.achimonline.github_markdown_emojis.settings
 
-import com.intellij.openapi.options.Configurable
-import de.achimonline.github_markdown_emojis.bundle.GitHubMarkdownEmojisBundle
-import javax.swing.JComponent
+import com.intellij.openapi.options.BoundConfigurable
+import com.intellij.openapi.ui.DialogPanel
+import com.intellij.ui.dsl.builder.LabelPosition
+import com.intellij.ui.dsl.builder.bindText
+import com.intellij.ui.dsl.builder.panel
+import de.achimonline.github_markdown_emojis.bundle.GitHubMarkdownEmojisBundle.message
 
-class GitHubMarkdownEmojisSettingsConfigurable : Configurable {
-    private var settingsComponent: GitHubMarkdownEmojisSettingsComponent? = null
+class GitHubMarkdownEmojisSettingsConfigurable : BoundConfigurable(message("settings.display.name")) {
+    private val settings
+        get() = GitHubMarkdownEmojisSettingsState.instance.settings
 
-    override fun getDisplayName(): String {
-        return GitHubMarkdownEmojisBundle.message("settings.display.name")
-    }
-
-    override fun getPreferredFocusedComponent(): JComponent? {
-        return settingsComponent!!.textField
-    }
-
-    override fun createComponent(): JComponent? {
-        settingsComponent = GitHubMarkdownEmojisSettingsComponent()
-        return settingsComponent!!.panel
-    }
-
-    override fun isModified(): Boolean {
-        return settingsComponent!!.url != GitHubMarkdownEmojisSettingsState.instance.url
-    }
-
-    override fun apply() {
-        val settings: GitHubMarkdownEmojisSettingsState = GitHubMarkdownEmojisSettingsState.instance
-        settings.url = settingsComponent!!.url
-    }
-
-    override fun reset() {
-        val settings: GitHubMarkdownEmojisSettingsState = GitHubMarkdownEmojisSettingsState.instance
-        settingsComponent!!.url = settings.url
-    }
-
-    override fun disposeUIResources() {
-        settingsComponent = null
+    override fun createPanel(): DialogPanel {
+        return panel {
+            row {
+                textField()
+                    .label(message("settings.url.label"), LabelPosition.TOP)
+                    .comment(message("settings.url.comment"))
+                    .bindText(settings::url)
+            }
+        }
     }
 }

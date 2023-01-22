@@ -20,8 +20,8 @@ class GitHubMarkdownEmojis(
     updateInterval: Long = 1000
 ) : MarkdownBrowserPreviewExtension {
     init {
-        val appSettings = ApplicationManager.getApplication().getService(GitHubMarkdownEmojisSettingsState::class.java)
-        val emojis = getEmojis(appSettings.url)
+        val settingsState = ApplicationManager.getApplication().getService(GitHubMarkdownEmojisSettingsState::class.java)
+        val emojis = getEmojis(settingsState.settings.url)
 
         if (emojis == null) {
             GitHubMarkdownEmojiNotification().notifyError(panel.project, GitHubMarkdownEmojisBundle.message("notifications.error.request"))
@@ -60,7 +60,7 @@ class GitHubMarkdownEmojis(
     }
 
     class Provider : MarkdownBrowserPreviewExtension.Provider {
-        override fun createBrowserExtension(panel: MarkdownHtmlPanel): MarkdownBrowserPreviewExtension? {
+        override fun createBrowserExtension(panel: MarkdownHtmlPanel): MarkdownBrowserPreviewExtension {
             return GitHubMarkdownEmojis(panel)
         }
     }

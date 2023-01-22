@@ -10,8 +10,8 @@ import kotlin.properties.Delegates
 internal class GitHubMarkdownEmojiExtensionTest {
     private fun getFile(name: String): File = File(javaClass.getResource("/${name}")!!.file)
 
-    var emojisJsonString: String by Delegates.notNull()
-    var markdownPanelHtmlString: String by Delegates.notNull()
+    private var emojisJsonString: String by Delegates.notNull()
+    private var markdownPanelHtmlString: String by Delegates.notNull()
 
     @Before
     fun setUp() {
@@ -22,9 +22,8 @@ internal class GitHubMarkdownEmojiExtensionTest {
     @Test
     fun `get all available emojis`() {
         val emojiFilePath = getFile("emojis.json").absolutePath
-        var emojis: String?
 
-        emojis = GitHubMarkdownEmojis.getEmojis("file:///${URLEncoder.encode(emojiFilePath, "utf-8")}")
+        var emojis: String? = GitHubMarkdownEmojis.getEmojis("file:///${URLEncoder.encode(emojiFilePath, "utf-8")}")
         assertNotNull(emojis)
         assertTrue(emojis!!.contains("smile"))
 

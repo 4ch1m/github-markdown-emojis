@@ -1,7 +1,8 @@
 # ![Octomoji](src/main/resources/META-INF/pluginIcon.png) GitHub Markdown Emojis
+
 > A plugin for the IntelliJ platform to instantly preview emojis of GitHub-flavoured markdown.
 
-# Table of Contents
+## Table of Contents
 
 * [Screenshot](#camera-screenshot)
 * [HowTo](#book-howto)
