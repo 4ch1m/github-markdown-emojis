@@ -1,3 +1,8 @@
+## [1.2.0]
+
+### Added
+- donation link in settings
+
 ## [1.1.0]
 
 ### Changed

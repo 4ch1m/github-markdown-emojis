@@ -13,6 +13,7 @@
 * [References](#link-references)
 * [Credits](#star-credits)
 * [Disclaimer](#point_up-disclaimer)
+* [Donate](#heart-donate)
 
 ## :camera: Screenshot
 
@@ -58,9 +59,14 @@ Please read the [license](LICENSE) file.
 
 ## :star: Credits
 
-* Logo smiley taken from Microsoft's [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) collection.
-* Octocat silhouette in logo based on [johan](https://gist.github.com/johan/1007813)'s SVG.
+* _Smiley_ - Microsoft's [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) collection
+* _Octocat_ - based on [johan](https://gist.github.com/johan/1007813)'s SVG
+* _Heart_ icon - courtesy of [FontAwesome](https://fontawesome.com/icons/heart?s=solid&f=classic)
 
 ## :point_up: Disclaimer
 
 This project is not affiliated with or endorsed by [GitHub](https://github.com).
+
+## :heart: Donate
+
+If you like this plugin, please consider a [donation](https://paypal.me/AchimSeufert). Thank you!
