@@ -1,3 +1,9 @@
+## [1.2.1]
+
+### Changed
+- updated dependencies
+- minor improvements
+
 ## [1.2.0]
 
 ### Added

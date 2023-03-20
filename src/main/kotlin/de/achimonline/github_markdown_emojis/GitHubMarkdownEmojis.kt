@@ -20,11 +20,15 @@ class GitHubMarkdownEmojis(
     updateInterval: Long = 1000
 ) : MarkdownBrowserPreviewExtension {
     init {
-        val settingsState = ApplicationManager.getApplication().getService(GitHubMarkdownEmojisSettingsState::class.java)
+        val settingsState =
+            ApplicationManager.getApplication().getService(GitHubMarkdownEmojisSettingsState::class.java)
         val emojis = getEmojis(settingsState.settings.url)
 
         if (emojis == null) {
-            GitHubMarkdownEmojiNotification().notifyError(panel.project, GitHubMarkdownEmojisBundle.message("notifications.error.request"))
+            GitHubMarkdownEmojiNotification().notifyError(
+                panel.project,
+                GitHubMarkdownEmojisBundle.message("notifications.error.request")
+            )
         } else {
             val parsedEmojis = parseEmojis(emojis)
 
