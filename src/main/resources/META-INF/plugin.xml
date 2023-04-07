@@ -8,10 +8,6 @@
             Achim Seufert
     </vendor>
 
-    <description><![CDATA[
-    Displays GitHub emojis in markdown preview pane.
-    ]]></description>
-
     <depends>com.intellij.modules.platform</depends>
     <depends>org.intellij.plugins.markdown</depends>
 
