@@ -26,7 +26,9 @@ intellij {
 }
 
 dependencies {
-    implementation("com.beust:klaxon:5.6")
+    implementation("com.beust:klaxon:5.6")  {
+        exclude(group = "org.jetbrains.kotlin") // prefer Kotlin distribution offered by IDE
+    }
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
 }
 
@@ -54,6 +56,10 @@ tasks {
                 "^[0-9,.v-]+(-r)?$".toRegex().matches(candidate.version)
             ).not()
         }
+    }
+
+    buildSearchableOptions {
+        enabled = false
     }
 
     patchPluginXml {
