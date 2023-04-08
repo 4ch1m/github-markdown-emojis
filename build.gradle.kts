@@ -58,10 +58,6 @@ tasks {
         }
     }
 
-    buildSearchableOptions {
-        enabled = false
-    }
-
     patchPluginXml {
         pluginDescription.set(properties("pluginDescription"))
         version.set(properties("pluginVersion"))
