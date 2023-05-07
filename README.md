@@ -37,7 +37,8 @@ There's nothing more to set up.
 Simply use the GitHub-Emojis (e.g. `:smile:`) in your markdown file and active the preview window/pane.  
 You should see the rendered images instead of just plain text.
 
-:star: **NEW**: The toolbar window will show you all available Emojis. Clicking on an Emoji will put the shortcode into the clipboard.
+NEW :heavy_check_mark: ...  
+The toolbar window will show you all available Emojis. Clicking on an Emoji will put the shortcode into the clipboard.
 
 ### :hammer: Build
 
