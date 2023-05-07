@@ -1,18 +1,18 @@
 package de.achimonline.github_markdown_emojis
 
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.Parser
 import com.intellij.openapi.application.ApplicationManager
 import de.achimonline.github_markdown_emojis.bundle.GitHubMarkdownEmojisBundle
-import de.achimonline.github_markdown_emojis.notification.GitHubMarkdownEmojiNotification
+import de.achimonline.github_markdown_emojis.helper.GitHubMarkdownEmojisHelper.Companion.createFindRegex
+import de.achimonline.github_markdown_emojis.helper.GitHubMarkdownEmojisHelper.Companion.createReplaceRegexes
+import de.achimonline.github_markdown_emojis.helper.GitHubMarkdownEmojisHelper.Companion.getEmojis
+import de.achimonline.github_markdown_emojis.helper.GitHubMarkdownEmojisHelper.Companion.parseEmojis
+import de.achimonline.github_markdown_emojis.notification.GitHubMarkdownEmojisNotification
 import de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsState
 import org.intellij.plugins.markdown.extensions.MarkdownBrowserPreviewExtension
 import org.intellij.plugins.markdown.ui.preview.MarkdownHtmlPanel
 import org.intellij.plugins.markdown.ui.preview.ResourceProvider
 import org.intellij.plugins.markdown.ui.preview.jcef.MarkdownJCEFHtmlPanel
-import java.net.URL
 import java.util.*
-import kotlin.collections.HashMap
 
 class GitHubMarkdownEmojis(
     panel: MarkdownHtmlPanel,
@@ -25,7 +25,7 @@ class GitHubMarkdownEmojis(
         val emojis = getEmojis(settingsState.settings.url)
 
         if (emojis == null) {
-            GitHubMarkdownEmojiNotification().notifyError(
+            GitHubMarkdownEmojisNotification().notifyError(
                 panel.project,
                 GitHubMarkdownEmojisBundle.message("notifications.error.request")
             )
@@ -84,43 +84,4 @@ class GitHubMarkdownEmojis(
 
     override val scripts: List<String>
         get() = emptyList()
-
-    companion object {
-        fun getEmojis(apiUrl: String): String? {
-            return try {
-                URL(apiUrl).readText()
-            } catch (ex: Exception) {
-                null
-            }
-        }
-
-        fun parseEmojis(jsonString: String): JsonObject {
-            return Parser.default().parse(StringBuilder(jsonString)) as JsonObject
-        }
-
-        fun createFindRegex(emojis: JsonObject): Regex {
-            val joinedKeys = emojis.keys.joinToString(separator = "|") { Regex.escape(it) }
-
-            return ":(<span md-src-pos=\"[0-9]+..[0-9]+\">)?(${joinedKeys})(</span>)?:".toRegex()
-        }
-
-        fun createReplaceRegexes(emojis: JsonObject): HashMap<String, List<Pair<Regex, String>>> {
-            val map = hashMapOf<String, List<Pair<Regex, String>>>()
-
-            for ((id, url) in emojis) {
-                map[id] = listOf(
-                    Pair(
-                        ":${Regex.escape(id)}:".toRegex(),
-                        "<img src=\"${url}\" style=\"height: 1em;\" alt=\"${id}\">"
-                    ),
-                    Pair(
-                        "(:)(<span md-src-pos=\"[0-9]+..[0-9]+\">)(${Regex.escape(id)})(</span>)(:)".toRegex(),
-                        "$2<img src=\"${url}\" style=\"height: 1em;\" alt=\"${id}\">$4"
-                    )
-                )
-            }
-
-            return map
-        }
-    }
 }

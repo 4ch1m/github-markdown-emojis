@@ -1,6 +1,6 @@
 # ![Octomoji](src/main/resources/META-INF/pluginIcon.png) GitHub Markdown Emojis
 
-> A plugin for the IntelliJ platform to instantly preview emojis of GitHub-flavoured markdown.
+> A plugin for the IntelliJ platform to instantly preview Emojis of GitHub-flavoured markdown.
 
 ## Table of Contents
 
@@ -34,8 +34,10 @@ Or go to the [plugin page](https://plugins.jetbrains.com/plugin/20705) on the [J
 ### :partying_face: Use
 
 There's nothing more to set up.  
-Simply use the GitHub-emojis (e.g. `:smile:`) in your markdown file and active the preview window/pane.  
+Simply use the GitHub-Emojis (e.g. `:smile:`) in your markdown file and active the preview window/pane.  
 You should see the rendered images instead of just plain text.
+
+:star: **NEW**: The toolbar window will show you all available Emojis. Clicking on an Emoji will put the shortcode into the clipboard.
 
 ### :hammer: Build
 
@@ -46,7 +48,7 @@ You should see the rendered images instead of just plain text.
 * use the [Gradle](https://gradle.org)-wrapper to build the plugin:  
 `./gradlew buildPlugin`
 * a deployable ZIP file can then be found here:  
-`./build/distributions/GitHub Markdown Emojis.zip`
+`./build/distributions/GitHub Markdown Emojis-*.zip`
 
 ## :balance_scale: License
 

@@ -3,6 +3,7 @@ package de.achimonline.github_markdown_emojis.settings
 import com.intellij.openapi.options.BoundConfigurable
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.util.IconLoader
+import com.intellij.ui.dsl.builder.Align
 import com.intellij.ui.dsl.builder.LabelPosition
 import com.intellij.ui.dsl.builder.bindText
 import com.intellij.ui.dsl.builder.panel
@@ -21,6 +22,7 @@ class GitHubMarkdownEmojisSettingsConfigurable : BoundConfigurable(message("sett
                 textField()
                     .label(message("settings.url.label"), LabelPosition.TOP)
                     .comment(message("settings.url.comment"))
+                    .align(Align.FILL)
                     .bindText(settings::url)
             }
             group {

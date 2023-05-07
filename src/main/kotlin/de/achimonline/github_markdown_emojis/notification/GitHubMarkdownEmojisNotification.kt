@@ -4,13 +4,13 @@ import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.project.Project
 
-class GitHubMarkdownEmojiNotification {
+class GitHubMarkdownEmojisNotification {
     fun notifyError(
         project: Project?,
         content: String?
     ) {
         NotificationGroupManager.getInstance()
-            .getNotificationGroup("GITHUB_MARKDOWN_EMOJIS")
+            .getNotificationGroup("GitHub Markdown Emojis")
             .createNotification(content!!, NotificationType.ERROR)
             .notify(project)
     }

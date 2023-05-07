@@ -1,5 +1,4 @@
 import org.jetbrains.changelog.Changelog
-import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 fun properties(key: String) = project.findProperty(key).toString()
 
@@ -8,7 +7,7 @@ description = properties("pluginDescription")
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.20"
+    id("org.jetbrains.kotlin.jvm") version "1.8.21"
     id("org.jetbrains.intellij") version "1.13.3"
     id("org.jetbrains.changelog") version "2.0.0"
     id("com.github.ben-manes.versions") version "0.46.0"
@@ -18,18 +17,19 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("com.beust:klaxon:5.6")  {
+        exclude(group = "org.jetbrains.kotlin") // prefer Kotlin distribution offered by IDE
+    }
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
+}
+
 intellij {
     pluginName.set(properties("pluginName"))
     version.set(properties("platformVersion"))
     plugins.set(properties("platformPlugins").split(",").map(String::trim).filter(String::isNotEmpty))
     updateSinceUntilBuild.set(false)
-}
-
-dependencies {
-    implementation("com.beust:klaxon:5.6")  {
-        exclude(group = "org.jetbrains.kotlin") // prefer Kotlin distribution offered by IDE
-    }
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
 }
 
 changelog {
@@ -48,7 +48,11 @@ tasks {
         kotlinOptions.jvmTarget = properties("kotlinJvmTarget")
     }
 
-    withType<DependencyUpdatesTask> {
+    withType<Test> {
+        useJUnitPlatform()
+    }
+
+    dependencyUpdates {
         rejectVersionIf {
             (
                 listOf("RELEASE", "FINAL", "GA").any { candidate.version.uppercase().contains(it) }

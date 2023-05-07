@@ -24,11 +24,17 @@
         <applicationService serviceImplementation="de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsState"/>
 
         <notificationGroup
-                id="GITHUB_MARKDOWN_EMOJIS"
+                id="GitHub Markdown Emojis"
                 displayType="BALLOON"
                 key="notifications.group.title"/>
+
+        <toolWindow
+                id="GitHub Markdown Emojis"
+                icon="com.intellij.icons.AllIcons.Vcs.Vendors.Github"
+                secondary="true"
+                anchor="right"
+                factoryClass="de.achimonline.github_markdown_emojis.toolwindow.GitHubMarkdownEmojisToolWindowFactory"/>
     </extensions>
 
     <resource-bundle>messages.GitHubMarkdownEmojisBundle</resource-bundle>
-
 </idea-plugin>

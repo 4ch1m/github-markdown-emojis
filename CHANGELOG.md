@@ -1,3 +1,13 @@
+## [1.3.0]
+
+### Added
+- dedicated toolbar window with "Emoji cheat sheet" 
+
+### Changed
+- Gradle-wrapper update
+- updated dependencies
+- several other improvements
+
 ## [1.2.2]
 
 ### Changed
