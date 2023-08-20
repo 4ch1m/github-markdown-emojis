@@ -1,3 +1,9 @@
+## [1.3.1]
+
+### Changed
+- Gradle-wrapper update
+- updated dependencies
+
 ## [1.3.0]
 
 ### Added
