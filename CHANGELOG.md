@@ -1,3 +1,12 @@
+## [1.3.2]
+
+### Changed
+- minor improvements
+- updated dependencies
+
+### Fixed
+- "No display name specified in plugin descriptor" error message
+
 ## [1.3.1]
 
 ### Changed

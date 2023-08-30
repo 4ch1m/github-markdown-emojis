@@ -19,6 +19,7 @@
         <applicationConfigurable
             id="de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsConfigurable"
             parentId="tools"
+            key="settings.display.name"
             instance="de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsConfigurable"/>
 
         <applicationService serviceImplementation="de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsState"/>

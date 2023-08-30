@@ -20,6 +20,8 @@ import de.achimonline.github_markdown_emojis.helper.GitHubMarkdownEmojisHelper.C
 import de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettingsState
 
 class GitHubMarkdownEmojisToolWindowFactory: ToolWindowFactory, DumbAware {
+    private var emojis: JsonObject? = null
+
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
         val settingsState =
             ApplicationManager.getApplication().getService(GitHubMarkdownEmojisSettingsState::class.java)
@@ -99,9 +101,5 @@ class GitHubMarkdownEmojisToolWindowFactory: ToolWindowFactory, DumbAware {
         }
 
         return "${html}</body></html>"
-    }
-
-    companion object {
-        var emojis: JsonObject? = null
     }
 }
