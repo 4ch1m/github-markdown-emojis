@@ -36,7 +36,7 @@ class GitHubMarkdownEmojisToolWindowFactory: ToolWindowFactory, DumbAware {
 
         if (emojis != null) {
             val html = buildHtml(emojis!!)
-            val htmlPanel = JCEFHtmlPanel(true, null, null)
+            val htmlPanel = JCEFHtmlPanel(null)
             htmlPanel.setHtml(html)
 
             toolWindowPanel = panel {

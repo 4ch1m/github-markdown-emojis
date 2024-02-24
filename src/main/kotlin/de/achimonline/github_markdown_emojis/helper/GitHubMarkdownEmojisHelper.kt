@@ -2,13 +2,13 @@ package de.achimonline.github_markdown_emojis.helper
 
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
-import java.net.URL
+import java.net.URI
 
 class GitHubMarkdownEmojisHelper {
     companion object {
         fun getEmojis(apiUrl: String): String? {
             return try {
-                URL(apiUrl).readText()
+                URI.create(apiUrl).toURL().readText()
             } catch (ex: Exception) {
                 null
             }
