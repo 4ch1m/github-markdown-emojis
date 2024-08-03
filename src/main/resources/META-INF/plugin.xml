@@ -31,7 +31,7 @@
 
         <toolWindow
                 id="GitHub Markdown Emojis"
-                icon="com.intellij.icons.AllIcons.Vcs.Vendors.Github"
+                icon="/icons/toolbar.svg"
                 secondary="true"
                 anchor="right"
                 factoryClass="de.achimonline.github_markdown_emojis.toolwindow.GitHubMarkdownEmojisToolWindowFactory"/>

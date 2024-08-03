@@ -88,7 +88,7 @@ class GitHubMarkdownEmojisToolWindowFactory: ToolWindowFactory, DumbAware {
         for ((id, url) in emojis) {
             if (filter == null || id.contains(filter.trim(), true)) {
                 html += """
-                    <figure title='${id}' style='text-align: center; float: left;' onclick='copyToClipboard("${id}");'>
+                    <figure title='${id}' style='text-align: center; float: left;' onclick='copyToClipboard("$id");'>
                         <img src='${url}' alt='${id}' style='height: 2em;'>
                         <figcaption style='color: ${toHtmlColor(CurrentTheme.Label.foreground())};'>
                             <small id='${id}'>

@@ -7,9 +7,9 @@ description = properties("pluginDescription")
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.22"
-    id("org.jetbrains.intellij") version "1.17.2"
-    id("org.jetbrains.changelog") version "2.2.0"
+    id("org.jetbrains.kotlin.jvm") version "2.0.0"
+    id("org.jetbrains.intellij") version "1.17.4"
+    id("org.jetbrains.changelog") version "2.2.1"
     id("com.github.ben-manes.versions") version "0.51.0"
 }
 
@@ -22,7 +22,11 @@ dependencies {
         exclude(group = "org.jetbrains.kotlin") // prefer Kotlin distribution offered by IDE
     }
 
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testImplementation(kotlin("test"))
+}
+
+kotlin {
+    jvmToolchain(properties("kotlinJvmTarget").toInt())
 }
 
 intellij {
@@ -37,21 +41,6 @@ changelog {
 }
 
 tasks {
-    properties("javaVersion").let {
-        withType<JavaCompile> {
-            sourceCompatibility = it
-            targetCompatibility = it
-        }
-    }
-
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = properties("kotlinJvmTarget")
-    }
-
-    withType<Test> {
-        useJUnitPlatform()
-    }
-
     dependencyUpdates {
         rejectVersionIf {
             (
@@ -74,9 +63,24 @@ tasks {
         })
     }
 
+    signPlugin {
+        if (listOf(
+                "JB_PLUGIN_SIGN_CERTIFICATE_CHAIN",
+                "JB_PLUGIN_SIGN_PRIVATE_KEY",
+                "JB_PLUGIN_SIGN_PRIVATE_KEY_PASSWORD").all { System.getenv(it) != null }) {
+            certificateChainFile.set(file(System.getenv("JB_PLUGIN_SIGN_CERTIFICATE_CHAIN")))
+            privateKeyFile.set(file(System.getenv("JB_PLUGIN_SIGN_PRIVATE_KEY")))
+            password.set(File(System.getenv("JB_PLUGIN_SIGN_PRIVATE_KEY_PASSWORD")).readText())
+        }
+    }
+
     publishPlugin {
         if (project.hasProperty("JB_PLUGIN_PUBLISH_TOKEN")) {
             token.set(project.property("JB_PLUGIN_PUBLISH_TOKEN").toString())
         }
     }
+}
+
+tasks.test {
+    useJUnitPlatform()
 }

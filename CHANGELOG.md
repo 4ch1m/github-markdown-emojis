@@ -1,3 +1,12 @@
+## [1.3.4]
+
+### Changed
+- Gradle-wrapper update
+- updated dependencies
+
+### Changed
+- minor code/asset improvements
+
 ## [1.3.3]
 
 ### Changed
