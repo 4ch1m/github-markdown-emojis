@@ -8,10 +8,10 @@ group = property("pluginGroup")
 version = property("pluginVersion")
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.0.10"
-    id("org.jetbrains.intellij.platform") version "2.0.1"
+    id("org.jetbrains.kotlin.jvm") version "2.1.10"
+    id("org.jetbrains.intellij.platform") version "2.2.1"
     id("org.jetbrains.changelog") version "2.2.1"
-    id("com.github.ben-manes.versions") version "0.51.0"
+    id("com.github.ben-manes.versions") version "0.52.0"
 }
 
 repositories {
@@ -29,9 +29,8 @@ dependencies {
             providers.gradleProperty("platformVersion")
         )
 
-        bundledPlugins(property("bundledPlatformPlugins").split(","))
+        bundledPlugins(property("platformBundledPlugins").split(","))
 
-        instrumentationTools()
         pluginVerifier()
         zipSigner()
         testFramework(TestFrameworkType.Platform)
@@ -47,7 +46,7 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(property("kotlinJvmTarget").toInt())
+    jvmToolchain(property("kotlin.jvm.target").toInt())
 }
 
 intellijPlatform {

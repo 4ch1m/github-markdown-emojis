@@ -1,3 +1,9 @@
+## [1.4.1]
+
+### Changed
+- Gradle-wrapper update
+- updated dependencies
+
 ## [1.4.0]
 
 ### Changed
