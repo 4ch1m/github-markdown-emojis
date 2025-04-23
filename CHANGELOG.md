@@ -1,3 +1,13 @@
+## [1.5.0]
+
+### Fixed
+- plugin incompatibilities with `2025.1`
+
+### Changed
+- required IDE version >= `2025.1`
+- Gradle-wrapper update
+- dependency updates
+
 ## [1.4.1]
 
 ### Changed
