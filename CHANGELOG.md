@@ -1,3 +1,9 @@
+## [1.5.1]
+
+### Changed
+- Gradle-wrapper update
+- dependency updates
+
 ## [1.5.0]
 
 ### Fixed
