@@ -8,10 +8,10 @@ group = property("pluginGroup")
 version = property("pluginVersion")
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.2.0"
-    id("org.jetbrains.intellij.platform") version "2.7.0"
+    id("org.jetbrains.kotlin.jvm") version "2.2.21"
+    id("org.jetbrains.intellij.platform") version "2.10.4"
     id("org.jetbrains.changelog") version "2.4.0"
-    id("com.github.ben-manes.versions") version "0.52.0"
+    id("com.github.ben-manes.versions") version "0.53.0"
 }
 
 repositories {
@@ -105,8 +105,8 @@ tasks {
             ).not()
         }
     }
-}
 
-tasks.test {
-    useJUnitPlatform()
+    test {
+        useJUnitPlatform()
+    }
 }
