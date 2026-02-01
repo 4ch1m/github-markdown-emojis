@@ -1,6 +1,6 @@
 # ![Octomoji](src/main/resources/META-INF/pluginIcon.png) GitHub Markdown Emojis
 
-> A plugin for the IntelliJ platform to instantly preview Emojis of GitHub-flavoured markdown.
+> A plugin for the IntelliJ platform to instantly preview Emojis of GitHub-flavoured Markdown.
 
 ## Table of Contents
 
@@ -34,7 +34,7 @@ Or go to the [plugin page](https://plugins.jetbrains.com/plugin/20705) on the [J
 ### :partying_face: Use
 
 There's nothing more to set up.  
-Simply use the GitHub-Emojis (e.g. `:smile:`) in your markdown file and active the preview window/pane.  
+Simply use the GitHub-Emojis (e.g. `:smile:`) in your Markdown file and active the preview window/pane.  
 You should see the rendered images instead of just plain text.
 
 NEW :heavy_check_mark: ...  
