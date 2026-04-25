@@ -1,3 +1,9 @@
+## [1.5.4]
+
+### Changed
+- Gradle-wrapper update
+- dependency updates
+
 ## [1.5.3]
 
 ### Changed
