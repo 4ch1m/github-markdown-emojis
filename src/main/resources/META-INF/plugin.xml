@@ -9,6 +9,7 @@
     </vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.jcef</depends>
     <depends>org.intellij.plugins.markdown</depends>
 
     <extensions defaultExtensionNs="org.intellij.markdown">

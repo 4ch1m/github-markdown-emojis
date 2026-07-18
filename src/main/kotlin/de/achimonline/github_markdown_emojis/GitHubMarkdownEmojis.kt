@@ -1,5 +1,6 @@
 package de.achimonline.github_markdown_emojis
 
+import com.intellij.markdown.jcef.preview.MarkdownJCEFHtmlPanel
 import com.intellij.openapi.application.ApplicationManager
 import de.achimonline.github_markdown_emojis.bundle.GitHubMarkdownEmojisBundle
 import de.achimonline.github_markdown_emojis.helper.GitHubMarkdownEmojisHelper.Companion.createFindRegex
@@ -11,7 +12,6 @@ import de.achimonline.github_markdown_emojis.settings.GitHubMarkdownEmojisSettin
 import org.intellij.plugins.markdown.extensions.MarkdownBrowserPreviewExtension
 import org.intellij.plugins.markdown.ui.preview.MarkdownHtmlPanel
 import org.intellij.plugins.markdown.ui.preview.ResourceProvider
-import org.intellij.plugins.markdown.ui.preview.jcef.MarkdownJCEFHtmlPanel
 import java.util.*
 
 class GitHubMarkdownEmojis(
